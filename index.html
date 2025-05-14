@@ -4,98 +4,559 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Murdeshwars - Continental & Sizzlers</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Color Palette */
+            --primary: #d62828;
+            --primary-dark: #b21e1e;
+            --secondary: #f8f1e9;
+            --accent: #f7b538;
+            --dark: #2b2b2b;
+            --light: #ffffff;
+            --gray: #f5f5f5;
+            --text-dark: #333333;
+            --text-light: #777777;
+            
+            /* Typography */
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Poppins', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+            
+            /* Other */
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--light);
+            transform: translateY(-3px);
+        }
+        
+        .section-padding {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: var(--spacing-sm) auto;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--light);
+            box-shadow: var(--box-shadow);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 10px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-icon {
+            position: relative;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: var(--light);
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            padding: 0 var(--spacing-md);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-sm);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: both;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s;
+            animation-fill-mode: both;
+        }
+        
+        /* Featured Section */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .featured-card {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .featured-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .featured-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: var(--spacing-md);
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .explore-btn {
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .explore-btn:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Features Section */
+        .features-section {
+            background-color: var(--secondary);
+            padding: var(--spacing-lg) 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .testimonial-card {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--light);
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .cta-content p {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding-top: var(--spacing-lg);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-section h3 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .footer-section p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: var(--spacing-sm) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Animations for Section Fade-In */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="logo">Murdeshwars</div>
-        </div>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="sizzlers.html">Sizzlers</a>
-            <a href="continental.html">Continental</a>
-            <a href="snacks.html">Quick Snacks</a>
-        </div>
-        <div class="nav-actions">
-            <a href="reservation.html" class="reservation-btn">Book a Table</a>
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h3>Categories</h3>
-            <button class="close-sidebar">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="category-list">
-            <div class="category-item active">
-                <i class="fas fa-utensils"></i>
-                <span>All Items</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-fire"></i>
-                <span>Sizzlers</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-pizza-slice"></i>
-                <span>Continental</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-hamburger"></i>
-                <span>Quick Snacks</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-ice-cream"></i>
-                <span>Desserts</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-coffee"></i>
-                <span>Beverages</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-leaf"></i>
-                <span>Vegetarian</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-drumstick-bite"></i>
-                <span>Non-Vegetarian</span>
-            </div>
-        </div>
-        <div class="sidebar-footer">
-            <div class="price-range">
-                <h4>Price Range</h4>
-                <div class="range-slider">
-                    <input type="range" min="0" max="1000" value="500" class="slider">
-                    <div class="range-values">
-                        <span>₹0</span>
-                        <span>₹1000</span>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Murdeshwars</div>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="reservation.html" class="btn btn-primary">Book a Table</a>
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
                     </div>
                 </div>
-            </div>
-            <button class="apply-filters">
-                <i class="fas fa-filter"></i>
-                Apply Filters
-            </button>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- Add scroll to top button -->
-    <div class="scroll-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
+    <!-- Main Content -->
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
@@ -103,63 +564,56 @@
                 <h1 class="hero-title">Discover Culinary Excellence</h1>
                 <p class="hero-subtitle">Experience the perfect blend of traditional flavors and modern culinary artistry</p>
                 <div class="hero-cta">
-                    <a href="menu.html" class="cta-button primary">View Menu</a>
-                    <a href="reservation.html" class="cta-button secondary">Book a Table</a>
+                    <a href="menu.html" class="btn btn-primary">View Menu</a>
+                    <a href="reservation.html" class="btn btn-secondary">Book a Table</a>
                 </div>
             </div>
         </section>
 
         <!-- Featured Items Section -->
-        <section class="featured-section">
-            <h2 class="section-title">Featured Dishes</h2>
-            <div class="featured-grid">
-                <div class="featured-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Signature Sizzler">
-                        <div class="image-overlay">
-                            <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Signature Sizzler Close-up">
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Featured Dishes</h2>
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Signature Sizzler">
+                        </div>
+                        <div class="card-content">
+                            <h3>Signature Sizzler</h3>
+                            <p>Our famous sizzler served on a hot plate with vegetables</p>
+                            <div class="card-footer">
+                                <span class="price">₹450</span>
+                                <a href="sizzlers.html" class="explore-btn">Explore <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-content">
-                        <h3>Signature Sizzler</h3>
-                        <p>Our famous sizzler served on a hot plate with vegetables</p>
-                        <div class="card-footer">
-                            <span class="price">₹450</span>
-                            <a href="sizzlers.html" class="explore-btn">Explore</a>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="featured-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Pasta Special">
-                        <div class="image-overlay">
-                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Pasta Special Close-up">
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Pasta Special">
+                        </div>
+                        <div class="card-content">
+                            <h3>Pasta Special</h3>
+                            <p>Handmade pasta with our secret sauce</p>
+                            <div class="card-footer">
+                                <span class="price">₹350</span>
+                                <a href="continental.html" class="explore-btn">Explore <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-content">
-                        <h3>Pasta Special</h3>
-                        <p>Handmade pasta with our secret sauce</p>
-                        <div class="card-footer">
-                            <span class="price">₹350</span>
-                            <a href="continental.html" class="explore-btn">Explore</a>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="featured-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="Quick Bites">
-                        <div class="image-overlay">
-                            <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="Quick Bites Close-up">
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="Quick Bites">
                         </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Quick Bites</h3>
-                        <p>Perfect snacks for any time of day</p>
-                        <div class="card-footer">
-                            <span class="price">₹150</span>
-                            <a href="snacks.html" class="explore-btn">Explore</a>
+                        <div class="card-content">
+                            <h3>Quick Bites</h3>
+                            <p>Perfect snacks for any time of day</p>
+                            <div class="card-footer">
+                                <span class="price">₹150</span>
+                                <a href="snacks.html" class="explore-btn">Explore <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,47 +622,51 @@
 
         <!-- Features Section -->
         <section class="features-section">
-            <div class="feature-card">
-                <i class="fas fa-utensils"></i>
-                <h3>Authentic Continental</h3>
-                <p>Experience our signature continental dishes</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-fire"></i>
-                <h3>Sizzling Hot Plates</h3>
-                <p>Our famous sizzlers served on hot plates</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-clock"></i>
-                <h3>Quick Service</h3>
-                <p>Fast and efficient service guaranteed</p>
+            <div class="container">
+                <div class="feature-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Authentic Continental</h3>
+                    <p>Experience our signature continental dishes</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Sizzling Hot Plates</h3>
+                    <p>Our famous sizzlers served on hot plates</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Quick Service</h3>
+                    <p>Fast and efficient service guaranteed</p>
+                </div>
             </div>
         </section>
 
         <!-- Testimonials Section -->
-        <section class="testimonials-section">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"The best continental food I've ever had! The sizzlers are absolutely amazing."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Customer">
-                            <div>
-                                <h4>Sarah Johnson</h4>
-                                <span>Food Blogger</span>
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The best continental food I've ever had! The sizzlers are absolutely amazing."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Customer">
+                                <div>
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Food Blogger</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Exceptional service and the food quality is consistently outstanding."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Customer">
-                            <div>
-                                <h4>Michael Chen</h4>
-                                <span>Regular Customer</span>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Exceptional service and the food quality is consistently outstanding."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Customer">
+                                <div>
+                                    <h4>Michael Chen</h4>
+                                    <span>Regular Customer</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -218,12 +676,14 @@
 
         <!-- CTA Section -->
         <section class="cta-section">
-            <div class="cta-content">
-                <h2>Ready to Experience Our Cuisine?</h2>
-                <p>Book a table or order online to enjoy our delicious dishes</p>
-                <div class="cta-buttons">
-                    <a href="reservation.html" class="cta-button primary">Book a Table</a>
-                    <a href="menu.html" class="cta-button secondary">Order Online</a>
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Experience Our Cuisine?</h2>
+                    <p>Book a table or order online to enjoy our delicious dishes</p>
+                    <div class="cta-buttons">
+                        <a href="reservation.html" class="btn btn-primary">Book a Table</a>
+                        <a href="menu.html" class="btn btn-secondary">Order Online</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -231,40 +691,110 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Murdeshwars</h3>
-                <p>Bringing you the finest continental cuisine and sizzlers since 2008.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Murdeshwars</h3>
+                    <p>Bringing you the finest continental cuisine and sizzlers since 2008.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@murdeshwars.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Restaurant Street, City</p>
                 </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Murdeshwars. All rights reserved.</p>
             </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-phone"></i> +91 1234567890</p>
-                <p><i class="fas fa-envelope"></i> info@murdeshwars.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Restaurant Street, City</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Murdeshwars. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Add scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/sidebar.js"></script>
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const menuIcon = mobileBtn.querySelector('i');
+
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuIcon.classList.toggle('fa-bars');
+                menuIcon.classList.toggle('fa-times');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu on link click
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuIcon.classList.add('fa-bars');
+                    menuIcon.classList.remove('fa-times');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Scroll progress indicator
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                scrollIndicator.style.width = `${scrolled}%`;
+            });
+
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Section animations
+            const observerOptions = {
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
