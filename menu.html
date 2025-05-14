@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murdeshwars - Menu</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Murdeshwars</div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="sizzlers.html">Sizzlers</a>
+            <a href="continental.html">Continental</a>
+            <a href="snacks.html">Quick Snacks</a>
+        </div>
+        <div class="nav-actions">
+            <a href="reservation.html" class="reservation-btn">Book a Table</a>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="menu-page">
+        <section class="menu-header">
+            <h1>Our Menu</h1>
+            <p>Discover our delicious selection of continental dishes and sizzlers</p>
+        </section>
+
+        <section class="menu-categories">
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="sizzlers">Sizzlers</button>
+                <button class="filter-btn" data-category="continental">Continental</button>
+                <button class="filter-btn" data-category="snacks">Quick Snacks</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Sizzlers -->
+                <div class="menu-card" data-category="sizzlers">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Chicken Sizzler">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Chicken Sizzler Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Chicken Sizzler</h3>
+                        <p>Grilled chicken served on a sizzling hot plate with vegetables</p>
+                        <div class="card-footer">
+                            <span class="price">₹450</span>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="sizzlers">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Prawn Sizzler">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Prawn Sizzler Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Prawn Sizzler</h3>
+                        <p>Fresh prawns grilled to perfection on a sizzling hot plate</p>
+                        <div class="card-footer">
+                            <span class="price">₹550</span>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continental -->
+                <div class="menu-card" data-category="continental">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Pasta Alfredo">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Pasta Alfredo Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pasta Alfredo</h3>
+                        <p>Creamy pasta with parmesan cheese and herbs</p>
+                        <div class="card-footer">
+                            <span class="price">₹350</span>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="continental">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Grilled Salmon">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Grilled Salmon Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Grilled Salmon</h3>
+                        <p>Fresh salmon fillet with lemon butter sauce</p>
+                        <div class="card-footer">
+                            <span class="price">₹650</span>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Snacks -->
+                <div class="menu-card" data-category="snacks">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="Garlic Bread">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="Garlic Bread Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Garlic Bread</h3>
+                        <p>Freshly baked bread with garlic butter</p>
+                        <div class="card-footer">
+                            <span class="price">₹150</span>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="snacks">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="French Fries">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="French Fries Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>French Fries</h3>
+                        <p>Crispy golden fries with seasoning</p>
+                        <div class="card-footer">
+                            <span class="price">₹180</span>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Murdeshwars</h3>
+                <p>Bringing you the finest continental cuisine and sizzlers since 2008.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@murdeshwars.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Restaurant Street, City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Murdeshwars. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+</html> 

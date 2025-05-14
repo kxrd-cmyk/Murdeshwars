@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murdeshwars - Continental & Sizzlers</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">Murdeshwars</div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="sizzlers.html">Sizzlers</a>
+            <a href="continental.html">Continental</a>
+            <a href="snacks.html">Quick Snacks</a>
+        </div>
+        <div class="nav-actions">
+            <a href="reservation.html" class="reservation-btn">Book a Table</a>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Categories</h3>
+            <button class="close-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="category-list">
+            <div class="category-item active">
+                <i class="fas fa-utensils"></i>
+                <span>All Items</span>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-fire"></i>
+                <span>Sizzlers</span>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-pizza-slice"></i>
+                <span>Continental</span>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-hamburger"></i>
+                <span>Quick Snacks</span>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-ice-cream"></i>
+                <span>Desserts</span>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-coffee"></i>
+                <span>Beverages</span>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-leaf"></i>
+                <span>Vegetarian</span>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-drumstick-bite"></i>
+                <span>Non-Vegetarian</span>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="price-range">
+                <h4>Price Range</h4>
+                <div class="range-slider">
+                    <input type="range" min="0" max="1000" value="500" class="slider">
+                    <div class="range-values">
+                        <span>₹0</span>
+                        <span>₹1000</span>
+                    </div>
+                </div>
+            </div>
+            <button class="apply-filters">
+                <i class="fas fa-filter"></i>
+                Apply Filters
+            </button>
+        </div>
+    </div>
+
+    <!-- Add scroll to top button -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover Culinary Excellence</h1>
+                <p class="hero-subtitle">Experience the perfect blend of traditional flavors and modern culinary artistry</p>
+                <div class="hero-cta">
+                    <a href="menu.html" class="cta-button primary">View Menu</a>
+                    <a href="reservation.html" class="cta-button secondary">Book a Table</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Items Section -->
+        <section class="featured-section">
+            <h2 class="section-title">Featured Dishes</h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Signature Sizzler">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef" alt="Signature Sizzler Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Signature Sizzler</h3>
+                        <p>Our famous sizzler served on a hot plate with vegetables</p>
+                        <div class="card-footer">
+                            <span class="price">₹450</span>
+                            <a href="sizzlers.html" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Pasta Special">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e" alt="Pasta Special Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pasta Special</h3>
+                        <p>Handmade pasta with our secret sauce</p>
+                        <div class="card-footer">
+                            <span class="price">₹350</span>
+                            <a href="continental.html" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="Quick Bites">
+                        <div class="image-overlay">
+                            <img src="https://images.unsplash.com/photo-1619740455993-9d77a26c6ad0" alt="Quick Bites Close-up">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Quick Bites</h3>
+                        <p>Perfect snacks for any time of day</p>
+                        <div class="card-footer">
+                            <span class="price">₹150</span>
+                            <a href="snacks.html" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="feature-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Authentic Continental</h3>
+                <p>Experience our signature continental dishes</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-fire"></i>
+                <h3>Sizzling Hot Plates</h3>
+                <p>Our famous sizzlers served on hot plates</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>Quick Service</h3>
+                <p>Fast and efficient service guaranteed</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The best continental food I've ever had! The sizzlers are absolutely amazing."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Customer">
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <span>Food Blogger</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Exceptional service and the food quality is consistently outstanding."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Customer">
+                            <div>
+                                <h4>Michael Chen</h4>
+                                <span>Regular Customer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Experience Our Cuisine?</h2>
+                <p>Book a table or order online to enjoy our delicious dishes</p>
+                <div class="cta-buttons">
+                    <a href="reservation.html" class="cta-button primary">Book a Table</a>
+                    <a href="menu.html" class="cta-button secondary">Order Online</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Murdeshwars</h3>
+                <p>Bringing you the finest continental cuisine and sizzlers since 2008.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@murdeshwars.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Restaurant Street, City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Murdeshwars. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+</html>
